@@ -61,8 +61,8 @@ export default function Resume() {
       }
     ],
     skills: [
-      'Programming Languages: JavaScript, Python, C',
-      'Web Development: HTML, CSS, Angular, Node.js',
+      'Programming Languages: JavaScript, Python, C, C++',
+      'Web Development: HTML, CSS, Angular, Node.js, React, TypeScript',
       'Cybersecurity: Ethical Hacking, Penetration Testing, Vulnerability Assessment',
       'Digital Marketing: SEO, Content Strategy, Social Media Marketing',
       'Databases: MySQL, MongoDB',
@@ -73,7 +73,7 @@ export default function Resume() {
       'Certified in Digital Marketing, 2022',
       'Certified in Fullstack Development, 2023',
       'Certified in Cybersecurity, 2023',
-      'Certified in Complete Web Development Bootcamp, 2022'
+      'Certified in Complete Web Development Bootcamp, 2021'
     ]
   }
 
