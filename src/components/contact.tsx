@@ -61,6 +61,7 @@ const Contact = () => {
                   <FaGithub size={24} />
                 </a>
               </div>
+              <p className="mt-2 text-sm">💬Reach out on WhatsApp for swift responses!</p> 
             </div>
             <div>
               {submitted ? (

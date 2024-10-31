@@ -92,7 +92,7 @@ export default function Component() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* Decorative Elements */}
+            
             <div className="absolute -top-10 -right-10 w-20 h-20 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
             <div className="absolute -bottom-8 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
@@ -134,7 +134,7 @@ export default function Component() {
         </div>
       </div>
 
-      {/* Animated background particles */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1f44]/30"></div>
       </div>

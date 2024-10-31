@@ -11,6 +11,8 @@ const skillCategories = [
     name: 'Software Development',
     skills: [
       { name: 'JavaScript', proficiency: 90 },
+      { name: 'Angular', proficiency: 75 },
+      { name: 'C++', proficiency: 50 },
       { name: 'React', proficiency: 85 },
       { name: 'Node.js', proficiency: 80 },
       { name: 'Python', proficiency: 75 },
@@ -44,6 +46,7 @@ const skillCategories = [
       { name: 'Compliance', proficiency: 60 },
       { name: 'Incident Response', proficiency: 65 },
       { name: 'Encryption', proficiency: 90 },
+      { name: 'Ethical Hacking', proficiency: 90 },
     ],
   },
   {
@@ -84,7 +87,7 @@ const Skills = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  // Filter skills based on the selected category
+
   const filteredSkills =
     selectedCategory === 'All'
       ? skillCategories.flatMap((category) => category.skills)

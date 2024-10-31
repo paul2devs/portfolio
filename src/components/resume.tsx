@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import html2pdf from 'html2pdf.js'
 import {
@@ -11,17 +11,19 @@ import {
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState('education')
+  const resumeRef = useRef<HTMLDivElement>(null)
 
   const downloadResume = () => {
-    const resumeElement = document.getElementById('resume')
-    const options = {
-      margin: 0.5,
-      filename: 'Paul_Oginni_Resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    if (resumeRef.current) {
+      const options = {
+        margin: 0.5,
+        filename: 'Paul_Oginni_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      }
+      html2pdf().set(options).from(resumeRef.current).save()
     }
-    html2pdf().set(options).from(resumeElement).save()
   }
 
   const tabs = [
@@ -81,6 +83,7 @@ export default function Resume() {
     <section id="resume" className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <motion.div
+          ref={resumeRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -98,7 +101,7 @@ export default function Resume() {
             </p>
 
             <div className="mb-8">
-              <div className="flex space-x-2 mb-4 overflow-x-auto">
+              <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
@@ -108,8 +111,9 @@ export default function Resume() {
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500'
                     }`}
+                    aria-pressed={activeTab === tab.id}
                   >
-                    <tab.icon className="w-5 h-5 mr-2" />
+                    <tab.icon className="w-5 h-5 mr-2" aria-hidden="true" />
                     {tab.label}
                   </button>
                 ))}
@@ -146,7 +150,7 @@ export default function Resume() {
                 )}
 
                 {activeTab === 'skills' && (
-                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300">
+                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 grid grid-cols-1 md:grid-cols-2 gap-2">
                     {tabContent.skills.map((skill, index) => (
                       <li key={index}>{skill}</li>
                     ))}
@@ -166,9 +170,9 @@ export default function Resume() {
             <div className="text-center">
               <button
                 onClick={downloadResume}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
-                <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
+                <DocumentArrowDownIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                 Download Resume as PDF
               </button>
             </div>
