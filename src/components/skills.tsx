@@ -17,6 +17,8 @@ const skillCategories = [
       { name: 'TypeScript', proficiency: 70 },
       { name: 'GraphQL', proficiency: 65 },
       { name: 'HTML/CSS', proficiency: 95 },
+      { name: 'Angular', proficiency: 75 },
+      { name: 'C++', proficiency: 50 },
     ],
   },
   {
@@ -35,6 +37,7 @@ const skillCategories = [
     name: 'Cybersecurity',
     skills: [
       { name: 'Network Security', proficiency: 85 },
+      { name: 'Ethical Hacking', proficiency: 90 },
       { name: 'Threat Detection', proficiency: 80 },
       { name: 'Penetration Testing', proficiency: 75 },
       { name: 'Security Auditing', proficiency: 70 },
@@ -53,6 +56,7 @@ const skillCategories = [
       { name: 'Blueprint Reading', proficiency: 70 },
       { name: 'Material Sourcing', proficiency: 65 },
       { name: 'Quality Control', proficiency: 80 },
+      { name: 'Architectural Drawing', proficiency: 75 },
     ],
   },
 ];
