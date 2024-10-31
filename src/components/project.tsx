@@ -12,8 +12,8 @@ const projects = [
         image: '/bg/theme_options.png',
         category: 'Software Development',
         technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-        github: 'https://github.com/yourusername/ecommerce-project',
-        liveUrl: 'https://example-ecommerce.com',
+        github: 'https://github.com/paul2devs/ecommerce-project',
+        liveUrl: 'https://underdevelopment.com',
       },
 
       {
@@ -24,7 +24,7 @@ const projects = [
         category: 'Digital Marketing',
         technologies: ['Google Analytics', 'SEMrush', 'Ahrefs', 'WordPress'],
         github: null,
-        liveUrl: 'https://example.com/seo-case-study',
+        liveUrl: 'https://underconstruction.com',
       },
       {
         id: 3,
@@ -33,7 +33,7 @@ const projects = [
         image: '/bg/security audit.jpg',
         category: 'Cybersecurity',
         technologies: ['Nmap', 'Wireshark', 'Metasploit', 'Burp Suite'],
-        github: 'https://github.com/yourusername/security-audit-tools',
+        github: 'https://github.com/paul2devs/security-audit-tools',
         liveUrl: null,
       },
       {
@@ -44,7 +44,7 @@ const projects = [
         category: 'Building Construction',
         technologies: ['AutoCAD', 'Revit', 'SketchUp', 'MS Project'],
         github: null,
-        liveUrl: 'https://example.com/sustainable-building-project',
+        liveUrl: 'https://underdevelopment.com',
       },
       {
         id: 5,
@@ -53,8 +53,8 @@ const projects = [
         image: '/bg/AI-Agents.jpg',
         category: 'Software Development',
         technologies: ['Python', 'TensorFlow', 'NLTK', 'Flask'],
-        github: 'https://github.com/yourusername/ai-chatbot',
-        liveUrl: 'https://example.com/chatbot-demo',
+        github: 'https://github.com/paul2devs/ai-chatbot',
+        liveUrl: 'https://underconstruction.com',
       },
       {
         id: 6,
@@ -64,7 +64,7 @@ const projects = [
         category: 'Digital Marketing',
         technologies: ['Hootsuite', 'Canva', 'Buffer', 'Sprout Social'],
         github: null,
-        liveUrl: 'https://example.com/social-media-case-study',
+        liveUrl: 'https://underdevelopment.com',
       },
 ]
 
