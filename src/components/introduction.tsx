@@ -5,7 +5,7 @@ import { Link as ScrollLink } from 'react-scroll'
 // Roles for typing animation
 const roles = ['Software Developer', 'Digital Marketer', 'Cybersecurity Expert', 'Construction Specialist']
 
-// Sample code to display with typing animation
+// Code to display with typing animation
 const displayCode = `
 .sf-menu > li.current-page {
   color: #ffffff;
