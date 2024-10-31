@@ -51,7 +51,7 @@ const Footer = () => {
                 <FaLinkedin size={24} />
               </a>
               <a
-                href="https://github.com/paul2dev"
+                href="https://github.com/paul2devs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#ffc857] transition-colors duration-300"
