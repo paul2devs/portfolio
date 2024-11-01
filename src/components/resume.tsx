@@ -95,10 +95,10 @@ export default function Resume() {
     ],
     skills: [
       'Programming Languages: JavaScript, Python, C, C++',
-      'Web Development: HTML, CSS, Angular, Node.js, React, TypeScript',
+      'Databases: MySQL, MongoDB',      
       'Cybersecurity: Ethical Hacking, Penetration Testing, Vulnerability Assessment',
       'Digital Marketing: SEO, Content Strategy, Social Media Marketing',
-      'Databases: MySQL, MongoDB',
+      'Web Development: HTML, CSS, Angular, Node.js, React, TypeScript',
       'Project Management: Agile, Scrum'
     ],
     awards: [
