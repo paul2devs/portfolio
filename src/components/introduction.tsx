@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Link as ScrollLink } from 'react-scroll'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link as ScrollLink } from 'react-scroll';
 
 // Roles for typing animation
-const roles = ['Software Developer', 'Digital Marketer', 'Cybersecurity Expert', 'Construction Specialist']
+const roles = ['Software Developer', 'Digital Marketer', 'Cybersecurity Expert', 'Construction Specialist'];
 
 // Code to display with typing animation
 const displayCode = `
@@ -17,54 +17,54 @@ const displayCode = `
 #search-btn a:hover span {
   color: #ffffff !important;
 }
-`.trim()
+`.trim();
 
-export default function Component() {
-  const [currentRole, setCurrentRole] = useState(0)
-  const [displayedText, setDisplayedText] = useState('')
-  const [displayedCode, setDisplayedCode] = useState('')
-  const [codeIndex, setCodeIndex] = useState(0)
+export default function Introduction() {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [displayedCode, setDisplayedCode] = useState('');
+  const [codeIndex, setCodeIndex] = useState(0);
 
   // Role typing effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
-    let i = 0
+    let i = 0;
     const typingInterval = setInterval(() => {
       if (i < roles[currentRole].length) {
-        setDisplayedText(roles[currentRole].substring(0, i + 1))
-        i++
+        setDisplayedText(roles[currentRole].substring(0, i + 1));
+        i++;
       } else {
-        clearInterval(typingInterval)
+        clearInterval(typingInterval);
       }
-    }, 100)
-    return () => clearInterval(typingInterval)
-  }, [currentRole])
+    }, 100);
+    return () => clearInterval(typingInterval);
+  }, [currentRole]);
 
   // Code typing effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (codeIndex < displayCode.length) {
-        setDisplayedCode((prev) => prev + displayCode[codeIndex])
-        setCodeIndex((prev) => prev + 1)
+        setDisplayedCode((prev) => prev + displayCode[codeIndex]);
+        setCodeIndex((prev) => prev + 1);
       } else {
-        clearInterval(interval)
+        clearInterval(interval);
       }
-    }, 50)
-    return () => clearInterval(interval)
-  }, [codeIndex])
+    }, 50);
+    return () => clearInterval(interval);
+  }, [codeIndex]);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Gradient Overlay */}
+      
       <div className="absolute inset-0">
         <img
-          src="/bg/pexels-negativespace-97077.jpg"
+          src={`${process.env.PUBLIC_URL}/bg/pexels-negativespace-97077.jpg`} 
           alt="Tech Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -92,7 +92,6 @@ export default function Component() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            
             <div className="absolute -top-10 -right-10 w-20 h-20 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
             <div className="absolute -bottom-8 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
@@ -134,10 +133,9 @@ export default function Component() {
         </div>
       </div>
 
-      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1f44]/30"></div>
       </div>
     </section>
-  )
+  );
 }

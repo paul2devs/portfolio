@@ -27,7 +27,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center mb-12">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <img
-                src="/bg/pexels-tima-miroshnichenko-5380612.jpg"
+                src={`${process.env.PUBLIC_URL}/bg/dp.jpg`} 
                 alt="Paul Oginni"
                 className="rounded-lg shadow-lg w-full"
               />

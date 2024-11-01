@@ -19,8 +19,6 @@ const skillCategories = [
       { name: 'TypeScript', proficiency: 70 },
       { name: 'GraphQL', proficiency: 65 },
       { name: 'HTML/CSS', proficiency: 95 },
-      { name: 'Angular', proficiency: 75 },
-      { name: 'C++', proficiency: 50 },
     ],
   },
   {
@@ -46,7 +44,6 @@ const skillCategories = [
       { name: 'Compliance', proficiency: 60 },
       { name: 'Incident Response', proficiency: 65 },
       { name: 'Encryption', proficiency: 90 },
-      { name: 'Ethical Hacking', proficiency: 90 },
     ],
   },
   {
@@ -87,7 +84,6 @@ const Skills = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-
   const filteredSkills =
     selectedCategory === 'All'
       ? skillCategories.flatMap((category) => category.skills)
@@ -102,7 +98,7 @@ const Skills = () => {
     <section id="skills" ref={ref} className="relative py-20 text-white">
       <div className="absolute inset-0">
         <img
-          src="/bg/skillsbg.jpg"
+          src={`${process.env.PUBLIC_URL}/bg/skillsbg.jpg`}
           alt="Tech Background"
           className="absolute inset-0 w-full h-full object-cover"
         />

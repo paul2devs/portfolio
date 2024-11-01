@@ -41,26 +41,57 @@ export default function Resume() {
       { title: 'Certification in Fullstack Development', institution: 'SP SYSTEMS AND NET SOLUTIONS', period: '2020 - 2021' }
     ],
     experience: [
-      {
-        title: 'Software Developer',
-        company: 'GIIT AFRICA',
-        period: 'January 2024 - Present',
-        responsibilities: [
-          'Developed and maintained web applications using HTML, CSS, JavaScript, and Angular',
-          'Collaborated with cross-functional teams to define, design, and ship new features',
-          'Improved application performance and user experience'
-        ]
-      },
-      {
-        title: 'Intern',
-        company: 'SP SYSTEMS AND NET SOLUTIONS',
-        period: 'August 2022 - 2024',
-        responsibilities: [
-          'Assisted in the development of internal tools and applications',
-          'Participated in code reviews and team meetings',
-          'Conducted research and provided solutions for technical issues'
-        ]
-      }
+        {
+          "title": "Software Developer",
+          "company": "GIIT AFRICA",
+          "period": "January 2020 - 2022",
+          "responsibilities": [
+            "Developed and maintained web applications using HTML, CSS, JavaScript, and Angular",
+            "Collaborated with cross-functional teams to define, design, and ship new features",
+            "Improved application performance and user experience"
+          ]
+        },
+        {
+          "title": "Intern",
+          "company": "SP SYSTEMS AND NET SOLUTIONS",
+          "period": "August 2022 - 2023",
+          "responsibilities": [
+            "Assisted in the development of internal tools and applications",
+            "Participated in code reviews and team meetings",
+            "Conducted research and provided solutions for technical issues"
+          ]
+        },
+        {
+          "title": "Cybersecurity Analyst",
+          "company": "TECH SECURE INC",
+          "period": "June 2024 - Present",
+          "responsibilities": [
+            "Performed vulnerability assessments and penetration testing on client systems",
+            "Developed and implemented security protocols to safeguard sensitive data",
+            "Monitored security incidents and responded to threats in real-time"
+          ]
+        },
+        {
+          "title": "Full Stack Developer",
+          "company": "INNOVATIVE SOLUTIONS",
+          "period": "March 2021 -  2022",
+
+          "responsibilities": [
+            "Designed and implemented RESTful APIs using Node.js and Express",
+            "Worked on database management with MongoDB and SQL",
+            "Utilized Agile methodologies to improve team collaboration and project delivery"
+          ]
+        },
+        {
+          "title": "Digital Marketing Specialist",
+          "company": "BRAND BOOST AGENCY",
+          "period": "February ",
+          "responsibilities": [
+            "Executed SEO strategies that increased organic search traffic by 80%",
+            "Managed social media campaigns across multiple platforms to enhance brand awareness",
+            "Analyzed marketing metrics to optimize campaign performance and ROI"
+          ]
+        },
     ],
     skills: [
       'Programming Languages: JavaScript, Python, C, C++',
