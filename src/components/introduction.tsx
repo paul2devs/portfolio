@@ -39,10 +39,10 @@ const HeroSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, #030811, #21536b)',
+        background: 'linear-gradient(135deg, #030811, #0a1a2a)',
       }}
     >
-      
+      {/* Subtle Cyan-to-Indigo Gradient in Corners */}
       <div
         style={{
           position: 'absolute',
@@ -50,13 +50,12 @@ const HeroSection = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, #030811, #21536b)',
+          background: 'radial-gradient(circle at 20% 20%, rgba(64, 207, 234, 0.1), transparent 40%), radial-gradient(circle at 80% 80%, rgba(75, 0, 130, 0.1), transparent 40%)',
           zIndex: -1,
-          animation: 'gradient-pulse 10s infinite alternate',
         }}
       ></div>
 
-      
+      {/* Animated Grid Lines */}
       <div
         style={{
           position: 'absolute',
@@ -65,13 +64,13 @@ const HeroSection = () => {
           width: '100%',
           height: '100%',
           background:
-            'radial-gradient(circle, rgba(64, 207, 234, 0.1) 10%, transparent 10.01%)',
+            'linear-gradient(to right, rgba(64, 207, 234, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(64, 207, 234, 0.05) 1px, transparent 1px)',
           backgroundSize: '20px 20px',
-          animation: 'grid-move 5s linear infinite',
+          animation: 'grid-move 10s linear infinite',
         }}
       ></div>
 
-      
+      {/* Neon Particles */}
       <div
         style={{
           position: 'absolute',
@@ -80,12 +79,12 @@ const HeroSection = () => {
           width: '100%',
           height: '100%',
           background:
-            'url("data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(64, 207, 234, 0.5)" /></svg>")',
+            'url("data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(64, 207, 234, 0.5)" /></svg>")',
           animation: 'particles-float 20s linear infinite',
         }}
       ></div>
 
-      
+      {/* Main Content */}
       <div style={{ textAlign: 'center', color: 'white', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -97,6 +96,7 @@ const HeroSection = () => {
               fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
               fontWeight: '800',
               marginBottom: '1rem',
+              textShadow: '0 0 10px rgba(64, 207, 234, 0.8)',
             }}
           >
             I Build{' '}
@@ -119,6 +119,7 @@ const HeroSection = () => {
               fontSize: '1.25rem',
               color: '#a0c9d4',
               marginBottom: '2rem',
+              textShadow: '0 0 5px rgba(64, 207, 234, 0.5)',
             }}
           >
             Software Developer | Cybersecurity Expert | Digital Marketer
@@ -140,7 +141,7 @@ const HeroSection = () => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '50px',
-                background: '#40cfea',
+                background: 'linear-gradient(135deg, #40cfea, #21536b)',
                 color: '#030811',
                 boxShadow: '0 0 15px rgba(64, 207, 234, 0.5)',
                 transition: 'all 0.3s ease',
@@ -149,10 +150,12 @@ const HeroSection = () => {
               onMouseEnter={(e) => {
                 e.target.style.transform = 'scale(1.05)';
                 e.target.style.boxShadow = '0 0 25px rgba(64, 207, 234, 0.8)';
+                e.target.style.filter = 'brightness(1.2)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'scale(1)';
                 e.target.style.boxShadow = '0 0 15px rgba(64, 207, 234, 0.5)';
+                e.target.style.filter = 'brightness(1)';
               }}
             >
               Hire Me
@@ -166,20 +169,18 @@ const HeroSection = () => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '50px',
-                border: '2px solid #a0c9d4',
-                color: '#a0c9d4',
+                border: '2px solid #40cfea',
+                color: '#40cfea',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 e.target.style.background = '#40cfea';
-                e.target.style.borderColor = '#40cfea';
                 e.target.style.color = '#030811';
               }}
               onMouseLeave={(e) => {
                 e.target.style.background = 'transparent';
-                e.target.style.borderColor = '#a0c9d4';
-                e.target.style.color = '#a0c9d4';
+                e.target.style.color = '#40cfea';
               }}
             >
               View My Work
@@ -188,7 +189,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      
+      {/* Down Arrow Indicator */}
       <div
         style={{
           position: 'absolute',
@@ -200,7 +201,7 @@ const HeroSection = () => {
       >
         <ScrollLink to="about" smooth={true} duration={500}>
           <svg
-            style={{ width: '32px', height: '32px', color: 'white' }}
+            style={{ width: '32px', height: '32px', color: '#40cfea', filter: 'drop-shadow(0 0 5px rgba(64, 207, 234, 0.8))' }}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -215,7 +216,7 @@ const HeroSection = () => {
         </ScrollLink>
       </div>
 
-      
+      {/* Glitch Effect on Hover */}
       <style>
         {`
           @keyframes gradient-pulse {
@@ -241,6 +242,17 @@ const HeroSection = () => {
           @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+          }
+          @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+          }
+          .glitch:hover {
+            animation: glitch 0.5s infinite;
           }
         `}
       </style>
