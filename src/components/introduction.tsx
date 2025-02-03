@@ -121,7 +121,7 @@ const HeroSection = () => {
               marginBottom: '2rem',
             }}
           >
-            Full-Stack Developer | Cybersecurity Expert | Digital Marketer
+            Software Developer | Cybersecurity Expert | Digital Marketer
           </p>
           <div
             style={{
