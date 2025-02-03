@@ -3,27 +3,11 @@ import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
 // Roles for typing animation
-const roles = ['Software Developer', 'Digital Marketer', 'Cybersecurity Expert', 'Construction Specialist'];
-
-// Code to display with typing animation
-const displayCode = `
-.sf-menu > li.current-page {
-  color: #ffffff;
-  background: transparent;
-}
-.nav-outer .sf-menu > li:hover {
-  transition: all 0.3s ease;
-}
-#search-btn a:hover span {
-  color: #ffffff !important;
-}
-`.trim();
+const roles = ['Scalable Web Solutions', 'Secure Web Solutions', 'High-Performance Web Solutions'];
 
 export default function Introduction() {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
-  const [displayedCode, setDisplayedCode] = useState('');
-  const [codeIndex, setCodeIndex] = useState(0);
 
   // Role typing effect
   useEffect(() => {
@@ -46,95 +30,82 @@ export default function Introduction() {
     return () => clearInterval(typingInterval);
   }, [currentRole]);
 
-  // Code typing effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (codeIndex < displayCode.length) {
-        setDisplayedCode((prev) => prev + displayCode[codeIndex]);
-        setCodeIndex((prev) => prev + 1);
-      } else {
-        clearInterval(interval);
-      }
-    }, 50);
-    return () => clearInterval(interval);
-  }, [codeIndex]);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       
-      <div className="absolute inset-0">
-        <img
-          src={`${process.env.PUBLIC_URL}/bg/pexels-negativespace-97077.jpg`} 
-          alt="Tech Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f44]/90 via-[#0a1f44]/80 to-[#0a1f44]/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030811] to-[#21536B] animate-gradient">
+        
+        <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
       </div>
 
-      <div className="container relative mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-black/50 backdrop-blur-sm rounded-lg p-6 font-mono text-sm"
-          >
-            <pre className="text-purple-400">
-              <code>{displayedCode}</code>
-            </pre>
-          </motion.div>
-        </div>
+     
+      <div className="container relative mx-auto px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative"
+        >
+         
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
+            I Build <span className="text-cyan-400">{displayedText}</span> with Clean Code.
+          </h1>
 
-        <div className="md:w-1/2 text-center md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <div className="absolute -top-10 -right-10 w-20 h-20 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div className="absolute -bottom-8 -right-4 w-24 h-24 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          
+          <p className="text-lg md:text-xl text-[#A0C9D4] mb-8 animate-fade-in">
+            Full-Stack Developer | Cybersecurity Expert | Digital Marketer
+          </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 uppercase text-white">
-              Paul Oginni
-            </h1>
-            <h2 className="text-lg md:text-3xl mb-8 font-light text-white">
-              I'm a <span className="text-purple-400 font-mono text-lg">{displayedText}</span>
-            </h2>
-            <p className="text-lg mb-8 text-gray-200">
-              With expertise in software development, digital marketing, cybersecurity, and building construction, 
-              I bring a unique blend of skills to create innovative and secure solutions for complex challenges.
-            </p>
+          
+          <div className="flex flex-col md:flex-row justify-center gap-4">
             <ScrollLink
-              to="about"
+              to="contact"
               smooth={true}
               duration={500}
-              className="inline-flex items-center px-8 py-3 rounded-full text-lg font-semibold 
-                bg-gradient-to-r from-purple-600 to-blue-600 text-white 
-                hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 
-                transition-all duration-300 cursor-pointer shadow-lg"
+              className="px-8 py-3 rounded-full text-lg font-semibold bg-cyan-500 text-white hover:bg-cyan-600 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg glow"
             >
-              More About Me
-              <svg 
-                className="w-5 h-5 ml-2" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M19 9l-7 7-7-7" 
-                />
-              </svg>
+              Hire Me
             </ScrollLink>
-          </motion.div>
+            <ScrollLink
+              to="projects"
+              smooth={true}
+              duration={500}
+              className="px-8 py-3 rounded-full text-lg font-semibold border-2 border-white text-[#A0C9D4] hover:bg-cyan-500 hover:text-white hover:border-cyan-500 hover:scale-105 transition-all duration-300 cursor-pointer"
+            >
+              View My Work
+            </ScrollLink>
+          </div>
+        </motion.div>
+
+        
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+          >
+            <svg
+              className="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </ScrollLink>
         </div>
       </div>
 
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1f44]/30"></div>
+      
+        <div className="absolute inset-0 bg-floating-particles opacity-30"></div>
       </div>
     </section>
   );
