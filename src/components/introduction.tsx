@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
+import Particles from 'react-tsparticles';
+import { Engine } from 'tsparticles-engine'; // For type definitions
+import * as THREE from 'three'; // For 3D hologram sphere
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; // For 3D models
+import useSound from 'use-sound'; // For hover sound effects
+import hackerSound from './hacker-beep.mp3'; // Import your sound file
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
+  const [playSound] = useSound(hackerSound); // Hover sound effect
 
   // Roles for typing animation
-  const roles = ['Scalable Web Solutions', 'Secure Web Solutions', 'High-Performance Web Solutions'];
+  const roles = [
+    'Building Future-Ready Solutions',
+    'Cybersecurity-Driven Development',
+    'Powering High-Performance Web Apps',
+  ];
 
   // Role typing effect
   useEffect(() => {
@@ -15,7 +26,7 @@ const HeroSection = () => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   useEffect(() => {
     let i = 0;
@@ -28,7 +39,74 @@ const HeroSection = () => {
       }
     }, 100);
     return () => clearInterval(typingInterval);
-  }, [currentRole]);
+  }, [currentRole, roles]);
+
+  // Floating Tech UI Panel (Live Hacking Terminal)
+  const renderHackingTerminal = () => (
+    <div
+      style={{
+        position: 'absolute',
+        bottom: '20px',
+        right: '20px',
+        width: '400px',
+        height: '200px',
+        background: 'rgba(0, 0, 0, 0.8)',
+        border: '1px solid #40cfea',
+        borderRadius: '8px',
+        padding: '10px',
+        fontFamily: 'monospace',
+        color: '#40cfea',
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ animation: 'scroll-text 10s linear infinite' }}>
+        <pre>
+          {`> Initializing system...\n> Loading modules...\n> Hacking into mainframe...\n> Access granted.\n> Downloading data...\n> Encryption complete.`}
+        </pre>
+      </div>
+    </div>
+  );
+
+  // 3D Hologram Code Sphere
+  useEffect(() => {
+    const hologramSphere = document.getElementById('hologram-sphere');
+    if (!hologramSphere) return; // Exit if the element is not found
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(200, 200);
+    hologramSphere.appendChild(renderer.domElement);
+
+    const geometry = new THREE.SphereGeometry(5, 32, 32);
+    const material = new THREE.MeshBasicMaterial({ color: 0x40cfea, wireframe: true });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    camera.position.z = 15;
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    };
+    animate();
+  }, []);
+
+  // Use the GLTFLoader to load a 3D model (example)
+  useEffect(() => {
+    const loader = new GLTFLoader();
+    loader.load('/path/to/your/model.glb', (gltf) => {
+      const model = gltf.scene;
+      // Add the model to your scene
+    });
+  }, []);
+
+  // Use the Engine for advanced particles configuration (example)
+  const particlesInit = async (engine: Engine) => {
+    console.log('Particles initialized:', engine);
+  };
 
   return (
     <section
@@ -39,10 +117,10 @@ const HeroSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, #030811, #0a1a2a)',
+        background: '#030811',
       }}
     >
-      {/* Subtle Cyan-to-Indigo Gradient in Corners */}
+      {/* Subtle Gradient */}
       <div
         style={{
           position: 'absolute',
@@ -50,8 +128,8 @@ const HeroSection = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'radial-gradient(circle at 20% 20%, rgba(64, 207, 234, 0.1), transparent 40%), radial-gradient(circle at 80% 80%, rgba(75, 0, 130, 0.1), transparent 40%)',
-          zIndex: -1,
+          background: 'radial-gradient(circle at 20% 20%, rgba(64, 207, 234, 0.1), transparent 60%)',
+          zIndex: 0,
         }}
       ></div>
 
@@ -64,27 +142,67 @@ const HeroSection = () => {
           width: '100%',
           height: '100%',
           background:
-            'linear-gradient(to right, rgba(64, 207, 234, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(64, 207, 234, 0.05) 1px, transparent 1px)',
+            'linear-gradient(90deg, rgba(64, 207, 234, 0.05) 1px, transparent 1px), linear-gradient(0deg, rgba(64, 207, 234, 0.05) 1px, transparent 1px)',
           backgroundSize: '20px 20px',
-          animation: 'grid-move 10s linear infinite',
+          animation: 'grid-move 5s linear infinite',
+          zIndex: 0,
         }}
       ></div>
 
-      {/* Neon Particles */}
-      <div
+      {/* Particles for Movement */}
+      <Particles
+        init={particlesInit} // Use the Engine for advanced configuration
+        options={{
+          fpsLimit: 60,
+          interactivity: {
+            events: {
+              onHover: {
+                enable: true,
+                mode: 'repulse',
+              },
+            },
+            modes: {
+              repulse: {
+                distance: 100,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            number: {
+              value: 100,
+            },
+            size: {
+              value: 3,
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: 'none',
+              random: true,
+              straight: false,
+              outModes: 'out',
+            },
+            links: {
+              enable: true,
+              distance: 150,
+              color: '#40cfea',
+              opacity: 0.4,
+              width: 1,
+            },
+          },
+        }}
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          background:
-            'url("data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(64, 207, 234, 0.5)" /></svg>")',
-          animation: 'particles-float 20s linear infinite',
+          zIndex: 0,
         }}
-      ></div>
+      />
 
-      {/* Main Content */}
+      {/* Content */}
       <div style={{ textAlign: 'center', color: 'white', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -99,7 +217,7 @@ const HeroSection = () => {
               textShadow: '0 0 10px rgba(64, 207, 234, 0.8)',
             }}
           >
-            I Build{' '}
+            I Engineer the{' '}
             <span
               style={{
                 color: '#40cfea',
@@ -112,17 +230,16 @@ const HeroSection = () => {
             >
               {displayedText}
             </span>{' '}
-            with Clean Code.
+            of Web & Security.
           </h1>
           <p
             style={{
               fontSize: '1.25rem',
               color: '#a0c9d4',
               marginBottom: '2rem',
-              textShadow: '0 0 5px rgba(64, 207, 234, 0.5)',
             }}
           >
-            Software Developer | Cybersecurity Expert | Digital Marketer
+            Scalable. Secure. High-Performance.
           </p>
           <div
             style={{
@@ -141,21 +258,24 @@ const HeroSection = () => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '50px',
-                background: 'linear-gradient(135deg, #40cfea, #21536b)',
+                background: 'linear-gradient(90deg, #40cfea, #21536b)',
                 color: '#030811',
                 boxShadow: '0 0 15px rgba(64, 207, 234, 0.5)',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = 'scale(1.05)';
-                e.target.style.boxShadow = '0 0 25px rgba(64, 207, 234, 0.8)';
-                e.target.style.filter = 'brightness(1.2)';
+                playSound(); // Play sound on hover
+                const target = e.target as HTMLElement;
+                target.style.transform = 'scale(1.05)';
+                target.style.boxShadow = '0 0 25px rgba(64, 207, 234, 0.8)';
+                target.style.animation = 'glitch 0.5s infinite alternate';
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'scale(1)';
-                e.target.style.boxShadow = '0 0 15px rgba(64, 207, 234, 0.5)';
-                e.target.style.filter = 'brightness(1)';
+                const target = e.target as HTMLElement;
+                target.style.transform = 'scale(1)';
+                target.style.boxShadow = '0 0 15px rgba(64, 207, 234, 0.5)';
+                target.style.animation = 'none';
               }}
             >
               Hire Me
@@ -169,18 +289,23 @@ const HeroSection = () => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '50px',
-                border: '2px solid #40cfea',
-                color: '#40cfea',
+                border: '2px solid #a0c9d4',
+                color: '#a0c9d4',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = '#40cfea';
-                e.target.style.color = '#030811';
+                playSound(); // Play sound on hover
+                const target = e.target as HTMLElement;
+                target.style.background = '#40cfea';
+                target.style.borderColor = '#40cfea';
+                target.style.color = '#030811';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'transparent';
-                e.target.style.color = '#40cfea';
+                const target = e.target as HTMLElement;
+                target.style.background = 'transparent';
+                target.style.borderColor = '#a0c9d4';
+                target.style.color = '#a0c9d4';
               }}
             >
               View My Work
@@ -201,7 +326,7 @@ const HeroSection = () => {
       >
         <ScrollLink to="about" smooth={true} duration={500}>
           <svg
-            style={{ width: '32px', height: '32px', color: '#40cfea', filter: 'drop-shadow(0 0 5px rgba(64, 207, 234, 0.8))' }}
+            style={{ width: '32px', height: '32px', color: 'white' }}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -216,19 +341,29 @@ const HeroSection = () => {
         </ScrollLink>
       </div>
 
-      {/* Glitch Effect on Hover */}
+      {/* Hologram Sphere */}
+      <div
+        id="hologram-sphere"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1,
+        }}
+      ></div>
+
+      {/* Render the hacking terminal */}
+      {renderHackingTerminal()}
+
       <style>
         {`
-          @keyframes gradient-pulse {
-            0% { opacity: 1; }
-            100% { opacity: 0.8; }
-          }
           @keyframes grid-move {
             0% { background-position: 0 0; }
             100% { background-position: 20px 20px; }
           }
-          @keyframes particles-float {
-            0% { transform: translateY(0); }
+          @keyframes scroll-text {
+            0% { transform: translateY(100%); }
             100% { transform: translateY(-100%); }
           }
           @keyframes typing {
@@ -244,15 +379,9 @@ const HeroSection = () => {
             50% { transform: translateY(-10px); }
           }
           @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-            60% { transform: translate(-2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-          }
-          .glitch:hover {
-            animation: glitch 0.5s infinite;
+            0% { text-shadow: 1px 1px 0 rgba(64, 207, 234, 0.5); }
+            50% { text-shadow: -1px -1px 0 rgba(64, 207, 234, 0.5); }
+            100% { text-shadow: 1px 1px 0 rgba(64, 207, 234, 0.5); }
           }
         `}
       </style>
