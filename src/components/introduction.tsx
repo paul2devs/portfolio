@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import Particles from 'react-tsparticles';
-import { Engine } from 'tsparticles-engine'; // For type definitions
-import * as THREE from 'three'; // For 3D hologram sphere
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; // For 3D models
-import useSound from 'use-sound'; // For hover sound effects
-import hackerSound from './hacker-beep.mp3'; // Import your sound file
-
+import { Engine } from 'tsparticles-engine';
+import * as THREE from 'three'; 
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; 
+import useSound from 'use-sound';
+import hackerSound from './hacker-beep.mp3'; 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
-  const [playSound] = useSound(hackerSound); // Hover sound effect
+  const [playSound] = useSound(hackerSound); 
 
   // Roles for typing animation
   const roles = [
@@ -70,7 +69,7 @@ const HeroSection = () => {
   // 3D Hologram Code Sphere
   useEffect(() => {
     const hologramSphere = document.getElementById('hologram-sphere');
-    if (!hologramSphere) return; // Exit if the element is not found
+    if (!hologramSphere) return; 
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -103,7 +102,7 @@ const HeroSection = () => {
     });
   }, []);
 
-  // Use the Engine for advanced particles configuration (example)
+
   const particlesInit = async (engine: Engine) => {
     console.log('Particles initialized:', engine);
   };
