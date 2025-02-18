@@ -238,7 +238,7 @@ const About = () => {
               <ul className="list-none space-y-4">
                 <li className="flex items-center gap-3">
                   <FaUserTie className="text-green-500 text-xl" />
-                  <span>Experience: Over 6 years in software dev + cybersecurity + digital marketing</span>
+                  <span>Experience: Over 6 years+ in software dev + cybersecurity + digital marketing</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <FaCode className="text-green-500 text-xl" />
