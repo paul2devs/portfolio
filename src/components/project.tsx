@@ -21,9 +21,9 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'E-Commerce Platform',
-    description: 'A high-performance e-commerce platform built with React and Node.js.',
+    description: 'A high performance Clothing e-commerce platform built with React and Node.js.',
     techStack: ['React', 'Node.js', 'Tailwind CSS'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://www.huckberry.com/',
     codeSnippet: `
       const App = () => {
         return <div className="p-6 text-xl font-bold">Welcome to the Store</div>;
@@ -38,9 +38,9 @@ const projects: Project[] = [
   {
     id: 2,
     title: 'Cybersecurity Dashboard',
-    description: 'A real-time dashboard for monitoring cybersecurity threats.',
+    description: 'A real time dashboard for monitoring cybersecurity threats.',
     techStack: ['Python', 'Django', 'PostgreSQL'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://threatconnect.com/',
     codeSnippet: `
       from django.http import JsonResponse
 
@@ -56,20 +56,11 @@ const projects: Project[] = [
   {
     id: 3,
     title: 'Social Media Analytics',
-    description: 'A data-driven analytics tool for social media platforms.',
+    description: 'A data driven analytics tool for social media platforms.',
     techStack: ['React', 'Next.js', 'GraphQL'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://www.sprinklr.com/',
     codeSnippet:  `
     import { gql, useQuery } from '@apollo/client';
-
-    const GET_ANALYTICS = gql\`
-      query {
-        analytics {
-          posts
-          engagement
-        }
-      }
-    \`;
 
     const Analytics = () => {
       const { data } = useQuery(GET_ANALYTICS);
@@ -86,13 +77,9 @@ const projects: Project[] = [
     title: 'Blockchain Voting System',
     description: 'A secure and transparent voting system using blockchain technology.',
     techStack: ['Solidity', 'Ethereum', 'React', 'Web3.js'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://horizonstate.com/',
     codeSnippet: `
       pragma solidity ^0.8.0;
-
-      contract Voting {
-          mapping(address => bool) public voters;
-          mapping(uint256 => uint256) public votes;
 
           function vote(uint256 candidateId) public {
               require(!voters[msg.sender], "Already voted");
@@ -108,10 +95,10 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: 'Real-Time Stock Tracker',
-    description: 'A real-time stock tracking application with live data updates.',
+    title: 'Real Time Stock Tracker',
+    description: 'A real time stock tracking application with live data updates.',
     techStack: ['React', 'Node.js', 'Socket.IO', 'Alpha Vantage API'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://stockcharts.com/',
     codeSnippet: `
       const socket = io('http://localhost:3000');
       socket.on('stockUpdate', (data) => {
@@ -128,7 +115,7 @@ const projects: Project[] = [
     title: 'Fitness Tracker App',
     description: 'A mobile app for tracking workouts, calories, and progress.',
     techStack: ['React Native', 'Firebase', 'Expo'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://www.trainerize.com/',
     codeSnippet: `
           const addWorkout = (workout) => {
               setWorkouts([...workouts, workout]);
@@ -152,14 +139,10 @@ const projects: Project[] = [
     title: 'Travel Planner',
     description: 'A web app for planning trips, booking flights, and managing itineraries.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Express'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://www.tripit.com/',
     codeSnippet: `
       const TripSchema = new mongoose.Schema({
-          destination: String,
-          startDate: Date,
-          endDate: Date,
       });
-
       const Trip = mongoose.model('Trip', TripSchema);
 
       app.get('/trips', async (req, res) => {
@@ -174,32 +157,10 @@ const projects: Project[] = [
   },
   {
     id: 8,
-    title: 'Online Learning Platform',
-    description: 'A platform for creating and consuming online courses.',
-    techStack: ['React', 'Django', 'PostgreSQL', 'AWS S3'],
-    liveDemoUrl: 'https://example.com',
-    codeSnippet: `
-      from django.db import models
-
-      class Course(models.Model):
-          title = models.CharField(max_length=200)
-          description = models.TextField()
-          created_at = models.DateTimeField(auto_now_add=True)
-
-          def __str__(self):
-              return self.title
-    `,
-    performanceStats: {
-      before: 62,
-      after: 93,
-    },
-  },
-  {
-    id: 9,
     title: 'Weather Forecast App',
-    description: 'A weather app providing real-time forecasts and alerts.',
+    description: 'A weather app providing real time forecasts and alerts.',
     techStack: ['React', 'OpenWeatherMap API', 'Tailwind CSS'],
-    liveDemoUrl: 'https://example.com',
+    liveDemoUrl: 'https://darksky.net/',
     codeSnippet: `
       const fetchWeather = async (city) => {
           const response = await fetch(

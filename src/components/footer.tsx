@@ -46,10 +46,6 @@ const Footer = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [controls]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-black text-white relative overflow-hidden">
       <Particles

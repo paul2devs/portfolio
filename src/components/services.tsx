@@ -8,10 +8,10 @@ const services = [
     id: 1,
     title: 'Software Development',
     icon: <FaCode />,
-    category: 'High-Performance Web & App Solutions',
+    category: 'High Performance Web & App Solutions',
     description: 'Custom-built websites and web applications engineered for speed, scalability, and security.',
     features: [
-      '100% hand-coded solutions – No templates, no shortcuts',
+      '100% hand coded solutions – No templates, no shortcuts',
       'Optimized for performance – Fast, scalable, and responsive',
       'Security-first approach – Built with cybersecurity best practices',
       'Modern, intuitive UI/UX – Designed for engagement and conversions',
@@ -25,9 +25,9 @@ const services = [
     category: 'Advanced Security Solutions',
     description: 'Comprehensive security assessments and penetration testing to fortify your digital assets.',
     features: [
-      'In-depth vulnerability assessments & ethical hacking',
-      'Real-time security monitoring & threat response',
-      'Custom-built security protocols for ultimate protection',
+      'In depth vulnerability assessments & ethical hacking',
+      'Real time security monitoring & threat response',
+      'Custom built security protocols for ultimate protection',
       'Cloud, network, and application security solutions',
     ],
     progress: 75,
@@ -39,8 +39,8 @@ const services = [
     category: 'Data-Driven Growth Strategies',
     description: 'Strategic marketing solutions to increase visibility, engagement, and conversions.',
     features: [
-      'SEO-driven content marketing for long-term organic growth',
-      'High-converting social media campaigns & paid ads',
+      'SEO driven content marketing for long-term organic growth',
+      'High converting social media campaigns & paid ads',
       'Advanced analytics to track and optimize performance',
       'Conversion-focused email marketing & lead generation',
     ],
@@ -138,7 +138,7 @@ const OurServices = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Step into the future of digital innovation. Select a service to explore.
+          Step into the future of digital innovation. Select a service to explore
         </motion.p>
       </div>
 
@@ -208,7 +208,7 @@ const OurServices = () => {
 
         <div className="mt-16 text-center">
           <h2 className="text-green-500 text-3xl font-bold mb-4">
-            Ready to transform your business? Let’s create magic.
+            Ready to transform your business? Let’s create magic
           </h2>
           <div className="flex justify-center gap-4">
           <motion.button

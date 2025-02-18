@@ -225,7 +225,7 @@ const About = () => {
               animate="visible"
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              Hi, I’m Paul, a passionate software developer with a passion for writing high performance, scalable, and secure code. With expertise in full-stack development, cybersecurity, and digital marketing, I build solutions that aren’t just functional—they’re built to scale, secure, and optimized for real-world impact. Whether it's developing seamless user experiences, fortifying security protocols, or driving digital growth strategies, I take a full-stack approach to innovation. Let’s build something extraordinary.
+              Hi, I’m Paul, a passionate software developer with a passion for writing high performance, scalable, and secure code. With expertise in full stack development, cybersecurity, and digital marketing, I build solutions that aren’t just functional they’re built to scale, secure, and optimized for real world impact. Whether it's developing seamless user experiences, fortifying security protocols, or driving digital growth strategies, I take a full-stack approach to innovation. Let’s build something extraordinary.
             </motion.p>
 
             <motion.div
